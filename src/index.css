@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Obsidian Dark Bases */
+  --bg-primary: #090909;
+  --bg-secondary: #0F0F10;
+  --bg-tertiary: #151515;
+  
+  /* Volcanic Rock Surfaces */
+  --surface-rock: #181818;
+  --surface-elevated: #202020;
+  --surface-overlay: rgba(24, 24, 24, 0.85);
+  
+  /* Molten Lava Accents */
+  --molten-red: #FF2D2D;
+  --lava-orange: #FF5B1F;
+  --deep-crimson: #B31217;
+  --burning-ember: #FF7A00;
+  
+  /* System Signals */
+  --success: #4ADE80;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  
+  /* Typography Colors */
+  --text-primary: #FFFFFF;
+  --text-secondary: #B8B8B8;
+  --text-muted: #707070;
+  
+  /* Dividers & Borders */
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-magma: rgba(255, 45, 45, 0.28);
+  --border-ember: rgba(255, 91, 31, 0.35);
+  --divider: rgba(255, 255, 255, 0.06);
+  
+  /* Glows & Shadows */
+  --shadow-obsidian: 0 16px 36px -8px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  --shadow-magma: 0 0 30px -4px rgba(255, 45, 45, 0.25), 0 12px 24px -6px rgba(0, 0, 0, 0.8);
+  --shadow-ember: 0 0 40px -2px rgba(255, 91, 31, 0.3);
+  
+  /* Fonts */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.55;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 45, 45, 0.09), transparent 70%),
+    radial-gradient(circle 900px at 100% 100%, rgba(255, 91, 31, 0.05), transparent 70%),
+    radial-gradient(circle 600px at 0% 50%, rgba(179, 18, 23, 0.04), transparent 60%);
+  background-attachment: fixed;
+}
+
+/* Custom Volcanic Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--deep-crimson);
+}
+
+/* Volcanic Glass / Obsidian Rock Panel */
+.obsidian-card {
+  background: var(--surface-rock);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-obsidian);
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.obsidian-card:hover {
+  border-color: var(--border-magma);
+  box-shadow: var(--shadow-magma);
+  transform: translateY(-2px);
+}
+
+/* Lava Glow Buttons */
+.btn-lava {
+  background: linear-gradient(135deg, var(--molten-red), var(--lava-orange));
+  color: #FFFFFF;
+  border: none;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  padding: 10px 22px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 20px rgba(255, 45, 45, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: var(--font-sans);
+}
+
+.btn-lava:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 6px 28px rgba(255, 45, 45, 0.55);
+  background: linear-gradient(135deg, #FF4545, #FF6F3A);
+}
+
+.btn-lava:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.btn-obsidian {
+  background: var(--surface-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  padding: 10px 20px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  font-family: var(--font-sans);
+}
+
+.btn-obsidian:hover {
+  background: #282828;
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+}
+
+/* Badges */
+.badge-ember {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(255, 45, 45, 0.12);
+  color: #FFA38F;
+  border: 1px solid rgba(255, 45, 45, 0.25);
+  letter-spacing: 0.01em;
+}
+
+.badge-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Flowing Lava Progress Bar */
+.lava-progress-track {
+  height: 6px;
+  background: #1e1e1e;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.lava-progress-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, #B31217, #FF2D2D, #FF7A00, #FF2D2D);
+  background-size: 200% 100%;
+  animation: lavaFlow 3s linear infinite;
+  box-shadow: 0 0 10px rgba(255, 45, 45, 0.6);
+}
+
+@keyframes lavaFlow {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* Subtle Ember Particle Pulse */
+@keyframes emberPulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.ember-glow {
+  animation: emberPulse 3.5s ease-in-out infinite;
+}
+
+/* Noise overlay utility */
+.volcanic-noise {
+  background-image: radial-gradient(rgba(255, 45, 45, 0.04) 1px, transparent 0);
+  background-size: 32px 32px;
+}
